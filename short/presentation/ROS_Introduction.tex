@@ -23,10 +23,10 @@
 
 \usepackage{theme/beamerthemehbrs}
 
-\author[MAS]{Hassan Umari}
-\title{Introduction to ROS}
-\subtitle{Foundation Course}
-\institute[HBRS]{Hochschule Bonn-Rhein-Sieg}
+\author[BAU]{Hassan Umari}
+\title{ROS Workshop}
+\subtitle{Introduction \& Overview}
+\institute[BAU]{Al-Balqa Applied University}
 \date{\today}
 \subject{ROS workshop}
 
@@ -58,10 +58,79 @@
 
 
 \begin{frame}[plain]{}
-    \centering
-    \includegraphics[width=.66\linewidth]{figures/stop_reinventing_theWheel.jpg}
-    
-\tiny{http://www.willowgarage.com/blog/2010/04/27/reinventing-wheel}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_0.pdf}
+\end{frame}
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_1.pdf}
+\end{frame}
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_2.pdf}
+\end{frame}
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_3.pdf}
+\end{frame}
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_4.pdf}
+\end{frame}
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_5.pdf}
+\end{frame}
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_6.pdf}
+\end{frame}
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_7.pdf}
+\end{frame}
+
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_8.pdf}
+\end{frame}
+
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_9.pdf}
+\end{frame}
+
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_10.pdf}
+\end{frame}
+
+
+\begin{frame}[plain]{}
+	\centering
+	\includegraphics[width=0.66\linewidth,angle=-90]{figures/ex_robot_application_11.pdf}
+\end{frame}
+
+
+\begin{frame}{What ROS is}
+	\framesubtitle{Robot Operating System}
+	A robot application:
+	\begin{itemize}
+		\item consists of \textbf{multiple} software components.
+		\item part of the application will be responsible for interfacing with the \textbf{hardware}
+		\item without a framework like ROS, it's hard to \textbf{share} your code with others
+		\item you might have to implement many components from scratch (\textbf{re-inventing} the wheel).
+	\end{itemize}
 \end{frame}
 
 
@@ -71,22 +140,20 @@
         \item A way to standardize writing software for robots.
         \item It enhances {\huge code reusability} \includegraphics[scale=0.02]{figures/recycling.png}.
         \item ROS is open-source \includegraphics[scale=0.09]{figures/open_source.png}.
-        \item It is a meta-operating system.
         \item ROS is installed on top of Linux.  \includegraphics[width=.1\linewidth]{figures/linux_logo.png}
 
     \end{itemize}
 \end{frame}
 
 
-\subsection{What ROS is NOT}
 \begin{frame}{What ROS is NOT}
-    \framesubtitle{Robot Operating System}
-    \begin{itemize}
-        \item It is NOT a programming language.
-        \item It is NOT an integrated development environment
-        (IDE).
-        \item It is NOT a stand-alone operating system 
-    \end{itemize}
+	\framesubtitle{Robot Operating System}
+	\begin{itemize}
+		\item It is NOT a programming language.
+		\item It is NOT an integrated development environment
+		(IDE).
+		\item It is NOT a stand-alone operating system 
+	\end{itemize}
 \end{frame}
 
 
@@ -222,6 +289,28 @@ child { node [text width=2cm]{Tools and libraries} };
 \end{frame}
 
 
+\begin{frame}{Example Projects}
+	\framesubtitle{Robot Operating System}
+	\textbf{Robot Navigation}
+	\linebreak
+	\includegraphics[width=0.8\linewidth]{figures/examples_01.jpg}    
+\end{frame}
+
+\begin{frame}{Example Projects}
+	\framesubtitle{Robot Operating System}
+	\textbf{Robot Navigation}
+	\linebreak
+	\includegraphics[width=0.8\linewidth]{figures/examples_02.jpg}    
+\end{frame}
+
+\begin{frame}{Example Projects}
+	\framesubtitle{Robot Operating System}
+	\textbf{Robot Manipulation}
+	\linebreak
+	\includegraphics[width=0.6\linewidth]{figures/examples_03.jpg}    
+\end{frame}
+
+
 
 
 
@@ -322,12 +411,10 @@ child { node [text width=2cm]{Tools and libraries} };
 
 \begin{frame}{Bad Things About ROS}
             \begin{itemize}
-                \item Learning ROS needs time. 
                 \item It needs a computer. Does not work on a microcontroller!
                 \item Not optimized for multiple robots.
                 \item Supported only on Linux, no support for Windows or macOS.
                 \item ROS imposes a communication overhead.
-                \item In the Python world, it forces us to ``live in the past". ROS python client library (rospy) uses python 2 instead of 3.
             \end{itemize}  
 \end{frame}
 
@@ -439,9 +526,8 @@ Inside a ROS package:
     \begin{itemize}
         \item A ROS node is a process that exchanges data with other processes through ROS network.
         
-        \item It may be a python script, a C++ written process, or even a MATLAB script.
+        \item It may be written in Python, C++, or even MATLAB.
         
-        \item Nodes perform computation.
     \end{itemize}
 \end{frame}
 
@@ -835,41 +921,37 @@ Inside a ROS package:
     {\huge ROS Distributions:}
     \vspace{7.0cm}
      \begin{textblock}{3}(1,5)
-        \includegraphics[width = 1.0\linewidth]{figures/melodic.jpg}
-        
-        \centering
-        ROS Melodic\\
-        \footnotesize 5.2018 - 5.2023\\
-        (LTS)\\
-        (Ubuntu 18 EOL)
-        
+		\includegraphics[width = 1.0\linewidth]{figures/noetic.png}
+		
+		\centering
+		ROS Noetic\\
+		\footnotesize 5.2023 - 5.2025\\
+		(LTS)\\
+		(Ubuntu 20 EOL)         	       
      \end{textblock}
      \begin{textblock}{3}(4.5,5)
-         \includegraphics[width = 1.0\linewidth]{figures/lunar.png}
-         
-         \centering
-         ROS Lunar\\
-         \footnotesize 5.2017 - 4.2019
+		\includegraphics[width = 1.0\linewidth]{figures/melodic.jpg}
+		
+		\centering
+		ROS Melodic\\
+		\footnotesize 5.2018 - 5.2023\\
+		(LTS)\\
+		(Ubuntu 18 EOL)     	
      \end{textblock}
      \begin{textblock}{3}(8,5)
-         \includegraphics[width = 1.0\linewidth]{figures/kinetic.png}
-         
-         \centering
-         ROS Kinetic\\
-         \footnotesize 5.2016 - 4.2021\\
-         (LTS)\\
-         (Ubuntu 16 EOL)\\
-         (what we use)
-         
+		 \includegraphics[width = 1.0\linewidth]{figures/lunar.png}
+		
+		\centering
+		ROS Lunar\\
+		\footnotesize 5.2017 - 4.2019     	         
      \end{textblock}  
      \begin{textblock}{3}(11.5,5)
-         \includegraphics[width = 1.0\linewidth]{figures/indigo.png}
-         
-         \centering
-         ROS Indigo\\
-         \footnotesize 7.2014 - 4.2019\\
-         (LTS)\\
-         (Ubuntu 14 EOL)\\
+		\includegraphics[width = 1.0\linewidth]{figures/kinetic.png}
+		\centering
+		ROS Kinetic\\
+		\footnotesize 5.2016 - 4.2021\\
+		(LTS)\\
+		(Ubuntu 16 EOL)\\
      \end{textblock}   
  
  
@@ -896,8 +978,6 @@ Inside a ROS package:
          \item \href{https://www.youtube.com/watch?v=LoRXdNMuslQ}{Overview on ROS actions: \tiny{https://www.youtube.com/watch?v=LoRXdNMuslQ}}.   
              
         \item \href{https://wiki.ros.org/Events/CoTeSys-ROS-School?action=AttachFile&do=get&target=ros_tutorial.pdf}{ROS introduction slides by Rada: \tiny{https://wiki.ros.org/Events/CoTeSys-ROS-School?action=AttachFile\&do=get\&target=ros\_tutorial.pdf}}.
-        
-        \item Previous material of the foundation\_course. 
     \end{enumerate}
 \end{frame}
 
