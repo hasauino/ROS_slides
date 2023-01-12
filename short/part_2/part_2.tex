@@ -225,14 +225,224 @@
 \setbeamercolor{background canvas}{bg=white}
 
 
+\begin{frame}{URDF} 
+	\begin{itemize}
+		\item URDF = Unified Robotics Description Format
+		\vspace{0.5cm}
+		\item XML format for representing a robot model
+	\end{itemize}
+\end{frame}
 
 
+\begin{frame}[fragile]{URDF}
+	\lstset{language=xml,
+		basicstyle=\scriptsize,
+		keywordstyle=\color{blue}\ttfamily,
+		stringstyle=\color{red}\ttfamily,
+		commentstyle=\color{green}\ttfamily,
+		morecomment=[l][\color{magenta}]{\#},
+		showstringspaces=false
+	}
+	\begin{lstlisting}
+	<robot>
+		<link>
+		...
+		</link>
+		<link>
+		...
+		</link>
+		
+		<joint>
+		...
+		</joint>
+		
+	</robot>
+	\end{lstlisting}
+\end{frame}
 
+\begin{frame}{URDF} 
+	\begin{itemize}
+		\item URDF file can be loaded by \textbf{robot\_state\_publisher}
+		\vspace{0.5cm}
+		\item It will publish link frames to tf
+	\end{itemize}
+\end{frame}
+
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]{}  
+	\centering
+	{\huge \textcolor{white}{Example} }
+	\linebreak
+	{\textcolor{white}{URDF + Robot state publisher} }
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
+
+
+%-------------------------------------------------
+\section{Popular Packages}
+\subsection{Gmapping}
+\begin{frame}{Gmapping} 
+	\begin{itemize}
+		\item Is a ROS wrapper for Gmapping C++ library.
+		\vspace{0.5cm}
+		\item Implements a SLAM algorithm.
+		\vspace{0.5cm}
+		\item odometry + laser scan $\rightarrow$ occupancy grid map 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Occupancy Grids} 
+	\subtitle{Gmapping}
+	\centering
+	\includegraphics[width=.99\linewidth]{figures/occupancy_grid.png} 
+	\vspace{0.5cm}
+	\begin{focus}
+		\scalebox{.8}{\ttfamily{map data = [0, 0, 0, 0, ... , 0, 100 ,100 ,100 ,0 ,0 , ... ]}}
+	\end{focus}
+\end{frame}
+
+\begin{frame}{Occupancy Grids} 
+	\subtitle{Gmapping}
+	\centering
+	\includegraphics[width=.99\linewidth]{figures/map.png} 
+\end{frame}
+
+\begin{frame}{Gmapping}
+		\begin{terminal}
+			\color{green} \ttfamily{sudo apt install ros-noetic-gmapping}
+		\end{terminal}
+\end{frame}
+
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]{}  
+	\centering
+	{\huge \textcolor{white}{Gmapping} }
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
+
+
+\subsection{Navigation Stack}
+
+\begin{frame}{Navigation Stack} 
+	\begin{itemize}
+		\item A collection of packages for mobile robot \textbf{navigation} (\textbf{2D})
+		\vspace{0.5cm}
+		\item map + odometry + laser scan + goal $\rightarrow$ velocity commands
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Navigation Stack} 
+	\begin{itemize}
+	\item Costmap
+	\vspace{0.5cm}
+	\item Global planner
+	\vspace{0.5cm}
+	\item Local planner	
+\vspace{0.5cm}	
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Costmap} 
+	\subtitle{Navigation Stack}
+	\centering
+	\includegraphics[width=.7\linewidth]{figures/costmap_0.png}
+\end{frame}
+
+\begin{frame}{Costmap} 
+	\subtitle{Navigation Stack}
+	\centering
+	\includegraphics[width=.7\linewidth]{figures/costmap_1.png}
+\end{frame}
+
+\begin{frame}{Costmap} 
+	\subtitle{Navigation Stack}
+	\centering
+	\includegraphics[width=.7\linewidth]{figures/costmap_3.png}
+\end{frame}
+
+\begin{frame}{Costmap} 
+	\subtitle{Navigation Stack}
+	\centering
+	\includegraphics[width=.7\linewidth]{figures/costmap_4.png}
+\end{frame}
+
+\begin{frame}{Costmap} 
+	\subtitle{Navigation Stack}
+	\centering
+	\includegraphics[width=.99\linewidth]{figures/costmap_5.png}
+\end{frame}
+
+\begin{frame}{Global Planner}
+	\subtitle{Navigation Stack} 
+	\begin{itemize}
+		\item Uses the \textbf{global costmap}
+		\vspace{0.5cm}
+		\item \textbf{Search} algorithm to find a safe path in the global costmap
+		\vspace{0.5cm}	
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Global Planner}
+	\subtitle{Navigation Stack} 
+	\centering
+	\includegraphics[width=.99\linewidth]{figures/costmap_6.png}
+\end{frame}
+
+\begin{frame}{Local Planner}
+	\subtitle{Navigation Stack} 
+	\begin{itemize}
+	\item Generates \textbf{velocity commands} to make the robot \textbf{follow} the global plan
+	\vspace{0.5cm}
+	\item It uses a \textbf{local costmap}
+	\vspace{0.5cm}
+	\item A local path is generated based on the global plan
+	\vspace{0.5cm}		
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Local Planner}
+	\subtitle{Navigation Stack} 
+	\centering
+	\includegraphics[width=.7\linewidth]{figures/costmap_0.png}
+\end{frame}
+
+\begin{frame}{Local Planner}
+	\subtitle{Navigation Stack} 
+	\centering
+	\includegraphics[width=.7\linewidth]{figures/costmap_1.png}
+\end{frame}
+\begin{frame}{Local Planner}
+	\subtitle{Navigation Stack} 
+	\centering
+	\includegraphics[width=.7\linewidth]{figures/costmap_2.png}
+\end{frame}
+
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]{}  
+	\centering
+	{\huge \textcolor{white}{Demo} }
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
+
+
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[plain]{}  
+	\centering
+	{\huge \textcolor{white}{Thank you} }
+	\linebreak
+	\vspace{1.0cm}
+	{\huge \textcolor{white}{Questions..?} }
+\end{frame}
+\setbeamercolor{background canvas}{bg=white}
 
 \end{document}
 % references:
 % http://wiki.ros.org/tf2
-
+% https://www.mathworks.com/help/sm/ug/urdf-model-import.html
+% http://wiki.ros.org/urdf
+% http://wiki.ros.org/gmapping
+% https://openslam-org.github.io/
 
 % api
 % http://docs.ros.org/en/melodic/api/tf/html/python/
